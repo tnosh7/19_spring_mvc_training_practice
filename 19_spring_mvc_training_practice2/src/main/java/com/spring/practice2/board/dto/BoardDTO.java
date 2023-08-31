@@ -1,7 +1,9 @@
 package com.spring.practice2.board.dto;
-
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BoardDTO {
 	
 	private long boardId;
