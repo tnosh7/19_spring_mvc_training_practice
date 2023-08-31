@@ -9,4 +9,7 @@ public interface BoardDAO {
 	public List<BoardDTO> selectListBoard()throws Exception ;
 	public BoardDTO selectOneBoard(long boardId)throws Exception ;
 	public void updateReadCnt(long boardId)throws Exception ;
+	public String selectOnePasswd(long boardId )throws Exception ;
+	public void updateBoard(BoardDTO boardDTO) throws Exception;
+	public void delBoard(long boardId) throws Exception;
 }

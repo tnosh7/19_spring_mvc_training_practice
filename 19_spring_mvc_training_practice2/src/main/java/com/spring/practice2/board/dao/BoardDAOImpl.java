@@ -35,4 +35,19 @@ public class BoardDAOImpl implements BoardDAO {
 	public void updateReadCnt(long boardId) throws Exception {
 		sqlSession.update("boardMapper.updateReadCnt", boardId);
 	}
+
+	@Override
+	public String selectOnePasswd(long boardId) throws Exception {
+		return sqlSession.selectOne("boardMapper.selectOnePasswd", boardId);
+	}
+
+	@Override
+	public void updateBoard(BoardDTO boardDTO) throws Exception {
+		sqlSession.update("boardMapper.updateBoard", boardDTO);
+	}
+
+	@Override
+	public void delBoard(long boardId) throws Exception {
+		sqlSession.delete("boardMapper.deleteBoard", boardId);
+	}
 }

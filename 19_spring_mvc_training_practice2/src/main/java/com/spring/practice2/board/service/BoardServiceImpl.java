@@ -37,4 +37,27 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.updateReadCnt(boardId);
 		return boardDAO.selectOneBoard(boardId);
 	}
+
+	@Override
+	public boolean checkAuthenticationUser(BoardDTO boardDTO) throws Exception {
+		String rawPassword = boardDTO.getPasswd();
+		String encodedPassword = boardDAO.selectOnePasswd(boardDTO.getBoardId());
+		
+		boolean isAuthentication = false;
+		if (bCryptPasswordEncoder.matches(rawPassword, encodedPassword)) {
+			isAuthentication = true;
+		}
+		
+		return isAuthentication;
+	}
+
+	@Override
+	public void getModifyBoard(BoardDTO boardDTO) throws Exception {
+		boardDAO.updateBoard(boardDTO);
+	}
+
+	@Override
+	public void deleteBoard(long boardId) throws Exception {
+		boardDAO.delBoard(boardId);
+	}
 }
